@@ -16,7 +16,13 @@
 // });
 
 Route::group(['namespace'=>'Home'],function(){
-	Route::get('/','IndexController@index');
+	/*----------  PRODUCT  ----------*/
+	
+	Route::get('/','ProductsController@index');
+
+	/*----------  CATEGORY  ----------*/
+
+	Route::get("{slug}-{id}",'CatsController@cats')->name('public.cats.cats');
 });
 
 Route::get('/public',function(){

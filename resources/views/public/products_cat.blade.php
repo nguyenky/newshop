@@ -1,9 +1,5 @@
 @extends('public.block.templete')
 
-@section('slide')
-	@include('public.block.slide')	
-@endsection
-
 @section('main')
 	<div class="features_items">
 		<h2 class="title text-center">Features Items</h2>
