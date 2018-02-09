@@ -14,7 +14,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // dd(url('/'));
         View::share('url',getenv('URL'));
     }
 

@@ -18,3 +18,8 @@
 Route::group(['namespace'=>'Home'],function(){
 	Route::get('/','IndexController@index');
 });
+
+Route::get('/public',function(){
+	// return view('public.index');
+	dd('ádsdsađâs');
+});
