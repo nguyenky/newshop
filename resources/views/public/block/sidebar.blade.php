@@ -45,7 +45,7 @@
 		<div class="brands-name">
 			<ul class="nav nav-pills nav-stacked">
 				@foreach($brands as $value)
-				<li><a href="#"> <span class="pull-right">({{$value['count']}})</span>{{$value['name']}}</a></li>
+				<li><a href="{{route('public.brands.brands',['id'=>$value['id']])}}"> <span class="pull-right">({{$value['count']}})</span>{{$value['name']}}</a></li>
 				@endforeach
 			</ul>
 		</div>

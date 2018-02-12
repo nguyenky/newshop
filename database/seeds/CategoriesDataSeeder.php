@@ -29,14 +29,14 @@ class CategoriesDataSeeder extends Seeder
     	foreach ($list_mens as $key => $value) {
     		$cat = Category::create([
     				'name'=> $value,
-    				'category_id'=> 2
+    				'category_id'=> 11
     			]);
     	}
     	$list_womens = ['Womens Fende','Womens Guess','Valentino','Womens Dior','Verace'];
     	foreach ($list_womens as $key => $value) {
     		$cat = Category::create([
     				'name'=> $value,
-    				'category_id'=> 3
+    				'category_id'=> 21
     			]);
     	}
     }

@@ -12,7 +12,7 @@
 				<div class="col-sm-9 padding-right">
 					@yield('main')
 					
-					@include('public.block.mini_category')
+					@yield('mini_category')
 					
 				</div>
 			</div>
@@ -27,6 +27,7 @@
 	    <script src="{{$url}}/templete/public/js/main.js"></script>
 	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	    <script src="{{$url}}/templete/public/angularjs/angularjs.js"></script>
+	    <script src="{{$url}}/templete/public/angularjs/header.js"></script>
 	    @yield('angularjs')
 
 	</body>

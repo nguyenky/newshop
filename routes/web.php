@@ -22,7 +22,15 @@ Route::group(['namespace'=>'Home'],function(){
 
 	/*----------  CATEGORY  ----------*/
 
-	Route::get("{slug}-{id}",'CatsController@cats')->name('public.cats.cats');
+	Route::get("/{slug}-{id}",'CatsController@cats')->name('public.cats.cats');
+
+	/*----------  BRANDS  ----------*/
+
+	Route::get("/brands/{id}",'BrandsController@brands')->name('public.brands.brands');
+
+	// Route::get('test',function(){
+	// 	dd('asdsd');
+	// })->name('test');
 });
 
 Route::get('/public',function(){

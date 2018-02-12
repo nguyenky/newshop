@@ -14,6 +14,7 @@
     <link href="{{$url}}/templete/public/css/animate.css" rel="stylesheet">
 	<link href="{{$url}}/templete/public/css/main.css" rel="stylesheet">
 	<link href="{{$url}}/templete/public/css/responsive.css" rel="stylesheet">
+	<link href="{{$url}}/templete/public/css/myCss.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -26,7 +27,7 @@
 </head><!--/head-->
 
 <body ng-app="myApp">
-	<header id="header"><!--header-->
+	<header id="header" ng-controller="HeaderController"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
 				<div class="row">
@@ -34,7 +35,7 @@
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com @{{name}}</a></li>
 							</ul>
 						</div>
 					</div>
@@ -90,7 +91,7 @@
 								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="cart.html" style="display: -webkit-inline-box;"><i class="fa fa-shopping-cart"></i> Cart</a><span class="number-cart">0</span></li>
 								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
