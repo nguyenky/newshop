@@ -27,7 +27,8 @@
 	    <script src="{{$url}}/templete/public/js/main.js"></script>
 	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	    <script src="{{$url}}/templete/public/angularjs/angularjs.js"></script>
-	    <script src="{{$url}}/templete/public/angularjs/header.js"></script>
+	    <!-- <script src="{{$url}}/templete/public/angularjs/header.js"></script> -->
+	    <script src="http://127.0.0.1:8000/templete/public/angularjs/header.js"></script>
 	    @yield('angularjs')
 
 	</body>

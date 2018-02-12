@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::group(['namespace'=>'Home'],function(){
+	/*----------  PRODUCT  ----------*/
+
+	Route::get('test',function(){
+		// dd('asdsd');
+		// \Cart::add(455, 'Sample Item', 100.99, 2, array());
+		$cartCollection = \Cart::getContent();
+		dd($cartCollection);
+	})->name('test');
+});

@@ -15,6 +15,7 @@
 	<link href="{{$url}}/templete/public/css/main.css" rel="stylesheet">
 	<link href="{{$url}}/templete/public/css/responsive.css" rel="stylesheet">
 	<link href="{{$url}}/templete/public/css/myCss.css" rel="stylesheet">
+	<!-- <link href="http://127.0.0.1:8000/templete/public/css/myCss.css" rel="stylesheet"> -->
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -91,7 +92,7 @@
 								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html" style="display: -webkit-inline-box;"><i class="fa fa-shopping-cart"></i> Cart</a><span class="number-cart">0</span></li>
+								<li><a href="cart.html" style="display: -webkit-inline-box;"><i class="fa fa-shopping-cart"></i> Cart</a><span class="number-cart" ng-show="hasCart">@{{countCart}}</span></li>
 								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>

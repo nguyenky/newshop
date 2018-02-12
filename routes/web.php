@@ -28,8 +28,23 @@ Route::group(['namespace'=>'Home'],function(){
 
 	Route::get("/brands/{id}",'BrandsController@brands')->name('public.brands.brands');
 
+	Route::get('test',function(){
+		// dd('asdsd');
+		// \Cart::add(455, 'Sample Item', 100.99, 2, array());
+		$cartCollection = Cart::getContent();
+		dd($cartCollection);
+	})->name('test');
+});
+
+Route::group(['namespace'=>'Api','prefix' => 'api'],function(){
+	Route::get('cart','ApiPublicController@getCart');
+	
+
 	// Route::get('test',function(){
-	// 	dd('asdsd');
+	// 	// dd('asdsd');
+	// 	// \Cart::add(455, 'Sample Item', 100.99, 2, array());
+	// 	$cartCollection = Cart::getContent();
+	// 	dd($cartCollection);
 	// })->name('test');
 });
 
