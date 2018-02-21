@@ -8,6 +8,9 @@ app.controller('HeaderController',[
         $scope.hasCart = true;
         $scope.countCart = 0;
         $scope.carts = [];
+        var data = ['ád','ád','ád'];
+        console.log(data.length)
+        console.log(data)
         $scope.getCart = function(){
         	$http({
 		        method : "GET",
