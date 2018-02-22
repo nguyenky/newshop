@@ -14,11 +14,12 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
 Route::group(['namespace'=>'Home'],function(){
 	/*----------  PRODUCT  ----------*/
 	
 	Route::get('/','ProductsController@index');
+
+	
 
 	/*----------  CATEGORY  ----------*/
 
@@ -31,9 +32,13 @@ Route::group(['namespace'=>'Home'],function(){
 	// Route::get('test',function(){
 	// 	dd('asdsd');
 	// })->name('test');
+
+	/*----------  BRANDS  ----------*/
+
+	Route::get('/api/cart','CartController@countCart');
 });
 
-Route::get('/public',function(){
-	// return view('public.index');
-	dd('ádsdsađâs');
-});
+// Route::get('/test',function(){
+// 	// \Cart::add(['id' => '293ad', 'name' => 'Product 1', 'qty' => 1, 'price' => 9.99, 'options' => ['size' => 'large']]);
+// 	dd(Cart::content());
+// });
