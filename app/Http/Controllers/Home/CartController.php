@@ -11,12 +11,7 @@ class CartController extends Controller
 
 		$cart = Cart::count();
 
-		if($cart == 0){
-			return false;
-
-		}
-
-		return true;
+		return $cart;
 
     }
 }

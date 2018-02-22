@@ -19,8 +19,6 @@ Route::group(['namespace'=>'Home'],function(){
 	
 	Route::get('/','ProductsController@index');
 
-	
-
 	/*----------  CATEGORY  ----------*/
 
 	Route::get("/{slug}-{id}",'CatsController@cats')->name('public.cats.cats');
@@ -29,16 +27,12 @@ Route::group(['namespace'=>'Home'],function(){
 
 	Route::get("/brands/{id}",'BrandsController@brands')->name('public.brands.brands');
 
-	// Route::get('test',function(){
-	// 	dd('asdsd');
-	// })->name('test');
+});
 
-	/*----------  BRANDS  ----------*/
+Route::group(['namespace'=>'Home'],function(){
+
+
+	/*----------  API  ----------*/
 
 	Route::get('/api/cart','CartController@countCart');
 });
-
-// Route::get('/test',function(){
-// 	// \Cart::add(['id' => '293ad', 'name' => 'Product 1', 'qty' => 1, 'price' => 9.99, 'options' => ['size' => 'large']]);
-// 	dd(Cart::content());
-// });
