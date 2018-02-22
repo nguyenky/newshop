@@ -3,12 +3,14 @@
 @section('slide')
 	@include('public.block.slide')	
 @endsection
-
+@section('angularjs')
+	<script src="{{$url_local}}/templete/public/angularjs/home.js"></script>
+@endsection
 @section('mini_category')
 	@include('public.block.mini_category')	
 @endsection
 @section('main')
-	<div class="features_items">
+	<div class="features_items" ng-controller="HomeController">
 		<h2 class="title text-center">Features Items</h2>
 		@foreach($arrItems as $value)
 		<div class="col-sm-4">
@@ -25,7 +27,7 @@
 								<h2>${{$value['price']}}</h2>
 							<p>{{$value['name']}}</p>
 								<div>
-									<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+									<a href="javascript:void(0)" class="btn btn-default add-to-cart" ng-click="addCart('<?=$value['id']?>','<?=$value['name']?>','<?=$value['price']?>')"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 								</div>
 							</div>
 						</div>

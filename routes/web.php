@@ -29,10 +29,12 @@ Route::group(['namespace'=>'Home'],function(){
 
 });
 
-Route::group(['namespace'=>'Home'],function(){
+Route::group(['namespace'=>'Api'],function(){
 
 
 	/*----------  API  ----------*/
 
-	Route::get('/api/cart','CartController@countCart');
+	Route::get('/api/cart','ApiCartController@countCart');
+
+	Route::post('/api/addcart','ApiCartController@addCart');
 });

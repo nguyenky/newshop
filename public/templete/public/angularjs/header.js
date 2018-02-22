@@ -6,31 +6,20 @@ app.controller('HeaderController',[
     'baseurl',
     function($scope,$rootScope,$http,baseurl){
         $scope.name= "uchiha";
-        $scope.hasCart = true;
+        $rootScope.hasCart = 0;
         $scope.countCart = 0;
         $scope.carts = [];
-        var data = ['ád','ád','ád'];
-        console.log(data.length)
-        console.log(data)
         $scope.getCart = function(){
         	$http({
 		        method : "GET",
-		        url : baseurl.api + 'cart'
+		        url : baseurl.api.public + 'cart'
 		    }).then(function mySuccess(response) {
-		        // $scope.myWelcome = response.data;
-		        console.log(response)
-		        // if(response.data.success){
-		        // 	$scope.hasCart = true;
-		        // 	$scope.carts = response.data.data;
-		        // 	$scope.countCart = response.data.length;
-		        // 	console.log(response.data)
-		        // 	console.log(response.data.data)
-		        // 	// console.log(response.data.data.length)
-		        // 	// console.log(response.data.length)
-		        // 	console.log($scope.carts.length);
-		        // }else{
-		        // 	$scope.hasCart = true;
-		        // }
+		        console.log(response.data.data)
+		        if(response.data.data !=0){
+		        	$rootScope.hasCart = response.data.data;
+		        }else{
+		        	$rootScope.hasCart = 0;
+		        }
 		    }, function myError(response) {
 		    	console.log(response)
 		    });
