@@ -19,3 +19,7 @@
 .cart{
     display: -webkit-inline-box;
 }
+.cart_quantity_button a:hover{
+    background: #FE980F !important;
+    text-decoration: none;
+}

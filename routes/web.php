@@ -14,7 +14,6 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
 Route::group(['namespace'=>'Home'],function(){
 	/*----------  PRODUCT  ----------*/
 	
@@ -28,12 +27,24 @@ Route::group(['namespace'=>'Home'],function(){
 
 	Route::get("/brands/{id}",'BrandsController@brands')->name('public.brands.brands');
 
-	// Route::get('test',function(){
-	// 	dd('asdsd');
-	// })->name('test');
+	/*----------  CART  ----------*/
+
+	Route::get("/cart",'CartController@cart')->name('public.cart.cart');
+
 });
 
-Route::get('/public',function(){
-	// return view('public.index');
-	dd('ádsdsađâs');
+Route::group(['namespace'=>'Api'],function(){
+
+
+	/*----------  API  ----------*/
+
+	Route::get('/api/cart','ApiCartController@countCart');
+
+	Route::post('/api/addcart','ApiCartController@addCart');
+
+	Route::get('/api/cart-content','ApiCartController@content');
+
+	Route::post('/api/updatecart','ApiCartController@updateCart');
+
+	Route::post('/api/remove','ApiCartController@remove');
 });

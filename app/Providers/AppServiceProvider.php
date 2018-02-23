@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::share('url',getenv('URL'));
+        View::share('url_local',getenv('URL_LOCAL'));
 
         $objCategory = new Category;
         $objProducts = new Product;
