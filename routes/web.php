@@ -31,6 +31,10 @@ Route::group(['namespace'=>'Home'],function(){
 
 	Route::get("/cart",'CartController@cart')->name('public.cart.cart');
 
+	/*----------  AUTH  ----------*/
+
+	Route::get("/login",'LoginController@login')->name('public.login.login');
+
 });
 
 Route::group(['namespace'=>'Api'],function(){
