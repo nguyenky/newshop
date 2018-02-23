@@ -27,6 +27,10 @@ Route::group(['namespace'=>'Home'],function(){
 
 	Route::get("/brands/{id}",'BrandsController@brands')->name('public.brands.brands');
 
+	/*----------  CART  ----------*/
+
+	Route::get("/cart",'CartController@cart')->name('public.cart.cart');
+
 });
 
 Route::group(['namespace'=>'Api'],function(){
@@ -37,4 +41,10 @@ Route::group(['namespace'=>'Api'],function(){
 	Route::get('/api/cart','ApiCartController@countCart');
 
 	Route::post('/api/addcart','ApiCartController@addCart');
+
+	Route::get('/api/cart-content','ApiCartController@content');
+
+	Route::post('/api/updatecart','ApiCartController@updateCart');
+
+	Route::post('/api/remove','ApiCartController@remove');
 });

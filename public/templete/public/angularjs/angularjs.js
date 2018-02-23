@@ -4,3 +4,6 @@ app = angular.module('myApp').constant('baseurl', {
         'public': 'http://127.0.0.1:8000/api/'
     },
 });
+app.factory('_', function() {
+	return window._; // assumes underscore has already been loaded on the page
+}); 

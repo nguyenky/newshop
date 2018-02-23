@@ -17,14 +17,31 @@ class ApiCartController extends BaseController
     }
     public function addCart(Request $request){
     	$input = $request->all();
-    	// $input['id'] = 123;
-    	// $input['qty'] = 1;
-    	// $input['price'] = 12;
-    	// $input['name'] = 12;
 
 		Cart::add($input);
 
 		return $this->sendResponse([], 'Successfully');
 
+    }
+    public function content(){
+
+        $cart = Cart::content();
+
+        return $this->sendResponse($cart, 'Cart retrieved successfully');
+    }
+
+    public function updateCart(Request $request){
+        $input = $request->all();
+
+        Cart::update($input['rowID'], $input);
+
+        return $this->sendResponse([], 'Cart retrieved successfully');
+    }
+    public function remove(Request $request){
+        $input = $request->all();
+
+        Cart::remove($input['rowID']);
+
+        return $this->sendResponse([], 'Cart retrieved successfully');
     }
 }

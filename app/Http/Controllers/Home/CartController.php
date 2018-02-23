@@ -7,11 +7,13 @@ use App\Http\Controllers\Controller;
 use Cart;
 class CartController extends Controller
 {
-    public function countCart(){
+    public function cart(){
 
-		$cart = Cart::count();
-
-		return $cart;
+		$carts = Cart::content();
+		// dd($carts->toArray());
+		return view("public.cart",[
+    		"carts"=>$carts
+    		]);
 
     }
 }
