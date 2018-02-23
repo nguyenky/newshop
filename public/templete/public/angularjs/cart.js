@@ -41,7 +41,7 @@ app.controller('CartController',[
             $scope.carts[indexDevice].qty--;
             $rootScope.hasCart--;
             $scope.removeCart(indexDevice);
-            $scope.updateCart(indexDevice)
+            
         }
 
         $scope.delCart = function(rowId){
@@ -61,6 +61,8 @@ app.controller('CartController',[
             if($scope.carts[index].qty == 0){
                 // $scope.carts.splice(index, 1);
                 $scope.removeApiCart(index);
+            }else{
+                $scope.updateCart(index)
             }
         }
         $scope.updateCart = function(index){
