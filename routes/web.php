@@ -31,8 +31,9 @@ Route::group(['namespace'=>'Home'],function(){
 
 	Route::get("/cart",'CartController@cart')->name('public.cart.cart');
 
-
 	Route::get('/check','CartController@checkInfo')->name('check');
+
+	Route::post('/payment','CartController@pay')->name('pay');
 
 	/*----------  AUTH  ----------*/
 

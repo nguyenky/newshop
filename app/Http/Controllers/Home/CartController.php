@@ -24,4 +24,8 @@ class CartController extends Controller
             "infor"=>$input
             ]);
     }
+    public function pay(Request $request){
+        $input = $request->all();
+        dd($input);
+    }
 }

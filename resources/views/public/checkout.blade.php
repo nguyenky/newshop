@@ -227,16 +227,17 @@
 				</table>
 			</div>
 			<div class="payment-options">
-					<span>
-						<label><input type="checkbox"> Direct Bank Transfer</label>
-					</span>
-					<span>
-						<label><input type="checkbox"> Check Payment</label>
-					</span>
-					<span>
-						<label><input type="checkbox"> Paypal</label>
-					</span>
-				</div>
+				<span>
+					<label><input type="checkbox"> Direct Bank Transfer</label>
+				</span>
+				<span>
+					<label><input type="checkbox"> Check Payment</label>
+				</span>
+				<span>
+					<label><input type="checkbox"> Paypal</label>
+				</span>
+			</div>
+			<a class="btn btn-primary" href="">Continue</a>
 		</div>
 	</section>
 @endsection
