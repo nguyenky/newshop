@@ -3,7 +3,8 @@
 	<script src="{{$url_local}}/templete/public/angularjs/cart.js"></script>
 @endsection
 @section('main')
-	<section id="cart_items" ng-controller="CartController">
+	<div ng-controller="CartController">
+	<section id="cart_items" >
 		<div class="container">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
@@ -62,73 +63,121 @@
 				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
 			</div>
 			<div class="row">
-				<div class="col-sm-6">
-					<div class="chose_area">
-						<ul class="user_option">
-							<li>
-								<input type="checkbox">
-								<label>Use Coupon Code</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Use Gift Voucher</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Estimate Shipping & Taxes</label>
-							</li>
-						</ul>
-						<ul class="user_info">
-							<li class="single_field">
-								<label>Country:</label>
-								<select>
-									<option>United States</option>
-									<option>Bangladesh</option>
-									<option>UK</option>
-									<option>India</option>
-									<option>Pakistan</option>
-									<option>Ucrane</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
+				<form action="{{route('check')}}" method="GET">
+					<!-- <div class="col-sm-12">
+						<div class="chose_area">
+							<div class="col-sm-12">
+								<h3>Information</h3>
+							</div>
+							<div class="col-sm-6">
+								<ul class="user_info">
+									<li class="single_field zip-field free">
+										<label>Full name:</label>
+										<input type="text" class="input-free" placeholder="Name" name="name" required="">
+									</li>
+								</ul>
+								<ul class="user_info">
+									<li class="single_field zip-field free">
+										<label>Email:</label>
+										<input type="email" class="input-free" placeholder="Email" name="email" required="">
+									</li>
+								</ul>
+								<ul class="user_info">
+									<li class="single_field zip-field free">
+										<label>Phone:</label>
+										<input type="text" class="input-free" placeholder="Phone" name="phone" required="">
+									</li>
+								</ul>
+							</div>
+							<div class="col-sm-6">
+								<ul class="user_info">
+									<li class="single_field zip-field free">
+										<label>Website</label>
+										<input type="text" class="input-free" placeholder="Website" name="website" >
+									</li>
+								</ul>
+								<ul class="user_info">
+									<li class="single_field zip-field free">
+										<label>Address 1: ( Country - City - District - Street ... or other )</label>
+										<input type="text" class="input-free" placeholder="Address" name="address" required="">
+									</li>
+								</ul>
+							</div>
+							<div style="clear: left;">
 								
-							</li>
-							<li class="single_field">
-								<label>Region / State:</label>
-								<select>
-									<option>Select</option>
-									<option>Dhaka</option>
-									<option>London</option>
-									<option>Dillih</option>
-									<option>Lahore</option>
-									<option>Alaska</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
-							
-							</li>
-							<li class="single_field zip-field">
-								<label>Zip Code:</label>
-								<input type="text">
-							</li>
-						</ul>
-						<a class="btn btn-default update" href="">Get Quotes</a>
-						<a class="btn btn-default check_out" href="">Continue</a>
+							</div>
+						</div>
+					</div> -->
+					<div class="col-sm-6">
+						<div class="chose_area">
+							<ul class="user_option">
+								<li>
+									<input type="checkbox">
+									<label>Use Coupon Code</label>
+								</li>
+								<li>
+									<input type="checkbox" >
+									<label>Use Gift Voucher</label>
+								</li>
+								<li>
+									<input type="checkbox">
+									<label>Estimate Shipping & Taxes</label>
+								</li>
+							</ul>
+							<ul class="user_info">
+								<li class="single_field">
+									<label>Country:</label>
+									<select>
+										<option>United States</option>
+										<option>Bangladesh</option>
+										<option>UK</option>
+										<option>India</option>
+										<option>Pakistan</option>
+										<option>Ucrane</option>
+										<option>Canada</option>
+										<option>Dubai</option>
+									</select>
+									
+								</li>
+								<li class="single_field">
+									<label>Region / State:</label>
+									<select>
+										<option>Select</option>
+										<option>Dhaka</option>
+										<option>London</option>
+										<option>Dillih</option>
+										<option>Lahore</option>
+										<option>Alaska</option>
+										<option>Canada</option>
+										<option>Dubai</option>
+									</select>
+								
+								</li>
+								<li class="single_field zip-field">
+									<label>Zip Code:</label>
+									<input type="text">
+								</li>
+							</ul>
+							<a class="btn btn-default update" href="" ng-click="functionUpdate()">Get Quotes</a>
+							<a class="btn btn-default check_out" href="" ng-click="functionUpdate()">Continue</a>
+						</div>
 					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="total_area">
-						<ul>
-							<li>Cart Sub Total <span>$59</span></li>
-							<li>Eco Tax <span>$2</span></li>
-							<li>Shipping Cost <span>Free</span></li>
-							<li>Total <span>$61</span></li>
-						</ul>
-							<a class="btn btn-default update" href="">Update</a>
-							<a class="btn btn-default check_out" href="">Check Out</a>
+					<div class="col-sm-6">
+						<div class="total_area">
+							<ul>
+								<li>Cart Sub Total<span>$ @{{cartSubTotal}}</span></li>
+								<li>Eco Tax <span>$0</span></li>
+								<li>Shipping Cost <span>Free</span></li>
+								<li>Total <span>$ @{{cartSubTotal}}</span></li>
+							</ul>
+								<a class="btn btn-default update" href="">Update</a>
+								<!-- <a class="btn btn-default check_out" href="" ng-click="checkout()">Check Out</a> -->
+								<button type="submit" class="btn btn-default check_out">Check Out</button>
+						</div>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</section><!--/#do_action-->
+	</div>
 @endsection

@@ -16,4 +16,12 @@ class CartController extends Controller
     		]);
 
     }
+
+    public function checkInfo(Request $request){
+        $input = $request->all();
+        // dd($input);
+        return view("public.checkout",[
+            "infor"=>$input
+            ]);
+    }
 }

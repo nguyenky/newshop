@@ -8,14 +8,16 @@ app.controller('CartController',[
     function($scope,$rootScope,$http,baseurl,_){
         $scope.cart = 'ád';
         $scope.carts=[];
+        $scope.cartSubTotal = null;
         $scope.getCart = function(){
             $http({
                 method : "GET",
                 url : baseurl.api.public + 'cart-content'
             }).then(function mySuccess(response) {
-                _.each(response.data.data, function(val){
+                _.each(response.data.data.content, function(val){
                     $scope.carts.push(val);
                 });
+                $scope.cartSubTotal = response.data.data.sub;
             }, function myError(response) {
                 console.log(response)
             });
@@ -28,6 +30,7 @@ app.controller('CartController',[
             });
 
             $scope.carts[indexDevice].qty++;
+            $scope.carts[indexDevice].subtotal = $scope.carts[indexDevice].subtotal + $scope.carts[indexDevice].price;
             $rootScope.hasCart++;
             $scope.updateCart(indexDevice)
 
@@ -39,6 +42,7 @@ app.controller('CartController',[
             });
 
             $scope.carts[indexDevice].qty--;
+            $scope.carts[indexDevice].subtotal = $scope.carts[indexDevice].subtotal - $scope.carts[indexDevice].price;
             $rootScope.hasCart--;
             $scope.removeCart(indexDevice);
             
@@ -76,6 +80,7 @@ app.controller('CartController',[
                 data: data,
             }).then(function mySuccess(response) {
                 console.log(response.data.data)
+                $scope.getSubTotal();
             }, function myError(response) {
                 console.log(response)
             });
@@ -91,9 +96,37 @@ app.controller('CartController',[
             }).then(function mySuccess(response) {
                 $rootScope.hasCart = $rootScope.hasCart - $scope.carts[index].qty;
                 $scope.carts.splice(index, 1);
+                $scope.getSubTotal();
                 
             }, function myError(response) {
                 console.log(response)
             });
+        }
+        $scope.updateCartSubTotal = function(){
+            var sum = _.reduce($scope.carts, function(memo, val){
+                return memo + val.subtotal; 
+            }, 0);
+            console.log(sum);
+            $scope.cartSubTotal = sum;
+            console.log($scope.cartSubTotal);
+        }
+        $scope.getSubTotal = function(){
+            $http({
+                method : "GET",
+                url : baseurl.api.public + 'total',
+            }).then(function mySuccess(response) {
+                $scope.cartSubTotal = parseInt(response.data.data);
+                // console.log($scope.cartSubTotal);
+                // $scope.checkout(response.data.data);
+                
+            }, function myError(response) {
+                console.log(response)
+            });
+        }
+        $scope.checkout = function(sub){
+            // $scope.cartSubTotal = sub;
+        }
+        $scope.functionUpdate = function(){
+            alert('Feature not complete yet ! Something went wrong. Please try again later !');
         }
 }]);

@@ -17,7 +17,7 @@
 Route::group(['namespace'=>'Home'],function(){
 	/*----------  PRODUCT  ----------*/
 	
-	Route::get('/','ProductsController@index');
+	Route::get('/','ProductsController@index')->name('public.index');
 
 	/*----------  CATEGORY  ----------*/
 
@@ -31,9 +31,18 @@ Route::group(['namespace'=>'Home'],function(){
 
 	Route::get("/cart",'CartController@cart')->name('public.cart.cart');
 
+
+	Route::get('/check','CartController@checkInfo')->name('check');
+
 	/*----------  AUTH  ----------*/
 
 	Route::get("/login",'LoginController@login')->name('public.login.login');
+
+	Route::post('/register','LoginController@register')->name('public.login.register');
+
+	Route::post('/login','LoginController@postLogin')->name('public.login.login');
+
+	Route::get('/logout','LoginController@logout')->name('public.login.logout');
 
 });
 
@@ -51,4 +60,6 @@ Route::group(['namespace'=>'Api'],function(){
 	Route::post('/api/updatecart','ApiCartController@updateCart');
 
 	Route::post('/api/remove','ApiCartController@remove');
+
+	Route::get('/api/total','ApiCartController@total');
 });

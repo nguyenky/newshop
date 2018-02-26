@@ -9,9 +9,16 @@
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
 						<h2>Login to your account</h2>
-						<form action="#">
-							<input type="text" placeholder="Name" />
-							<input type="email" placeholder="Email Address" />
+						<form action="{{route('public.login.login')}}" method="POST">
+							{{csrf_field()}}
+							<input type="email" placeholder="Email Address" name="email" />
+							@if ($errors->has('email'))
+		                    	<div class="message-error">{{ $errors->first('name') }}</div>
+		               		@endif
+		               		<input type="password" placeholder="Password" name="password" />
+		               		@if ($errors->has('password'))
+		                    	<div class="message-error">{{ $errors->first('password') }}</div>
+		               		@endif
 							<span>
 								<input type="checkbox" class="checkbox"> 
 								Keep me signed in
@@ -26,10 +33,29 @@
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
 						<h2>New User Signup!</h2>
-						<form action="#">
-							<input type="text" placeholder="Name"/>
-							<input type="email" placeholder="Email Address"/>
-							<input type="password" placeholder="Password"/>
+						<!-- @if (count($errors) > 0)
+                            <div class="erorr">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif -->
+						<form action="{{route('public.login.register')}}" method="POST">
+							{{csrf_field()}}
+							<input type="text" placeholder="Name" name="name" />
+							@if ($errors->has('name'))
+		                    	<div class="message-error">{{ $errors->first('name') }}</div>
+		               		@endif
+							<input type="email" placeholder="Email Address" name="email" />
+							@if ($errors->has('email'))
+		                    	<div class="message-error">{{ $errors->first('email') }}</div>
+		               		@endif
+							<input type="password" placeholder="Password" name="password" />
+							@if ($errors->has('password'))
+		                    	<div class="message-error">{{ $errors->first('password') }}</div>
+		               		@endif
 							<button type="submit" class="btn btn-default">Signup</button>
 						</form>
 					</div><!--/sign up form-->
