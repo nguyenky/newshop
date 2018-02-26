@@ -23,3 +23,15 @@
     background: #FE980F !important;
     text-decoration: none;
 }
+.message-error{
+    color: #e46060;
+    font-style: italic;
+    align-content: right;
+    margin-bottom: 10px;
+}
+.input-free{
+        width: -webkit-fill-available;
+}
+.free{
+    width: 100% !important;
+}

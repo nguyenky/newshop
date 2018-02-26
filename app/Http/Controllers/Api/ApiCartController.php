@@ -26,8 +26,10 @@ class ApiCartController extends BaseController
     public function content(){
 
         $cart = Cart::content();
+        
+        $sub = Cart::subtotal();
 
-        return $this->sendResponse($cart, 'Cart retrieved successfully');
+        return $this->sendResponse(['content'=>$cart,'sub'=>$sub], 'Cart retrieved successfully');
     }
 
     public function updateCart(Request $request){
@@ -43,5 +45,11 @@ class ApiCartController extends BaseController
         Cart::remove($input['rowID']);
 
         return $this->sendResponse([], 'Cart retrieved successfully');
+    }
+    public function total(){
+
+        $cart = Cart::subtotal();
+
+        return $this->sendResponse($cart, 'Cart retrieved successfully');
     }
 }

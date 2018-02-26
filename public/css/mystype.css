@@ -14,3 +14,9 @@
     width: 21px;
     height: 21px;
 }
+.input-free{
+        width: -webkit-fill-available;
+}
+.free{
+    width: 100% !important;
+}
