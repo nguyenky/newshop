@@ -90,9 +90,13 @@
 							<ul class="nav navbar-nav">
 								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href="/check"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="/cart" style="display: -webkit-inline-box;"><i class="fa fa-shopping-cart"></i> Cart</a><span class="number-cart" ng-show="hasCart">@{{hasCart}}</span></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								@if(\Auth::user())
+									<li><a href="/logout"><i class="fa fa-lock"></i>{{\Auth::user()->name}}</a></li>
+								@else
+									<li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+								@endif
 							</ul>
 						</div>
 					</div>
