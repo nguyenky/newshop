@@ -35,3 +35,22 @@
 .free{
     width: 100% !important;
 }
+.shopper-info input, 
+.form-two select, 
+.form-two input, 
+.form-one input {
+  background:#F0F0E9;
+  border: 0 none;
+  margin-bottom:10px;
+  padding: 10px;
+  width: 100%;
+  font-weight: 300
+}
+
+.form-two > select {
+  padding:10px 5px
+}
+
+.form-two {
+  margin-left: 5%
+}

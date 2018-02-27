@@ -115,7 +115,7 @@ app.controller('CartController',[
                 method : "GET",
                 url : baseurl.api.public + 'total',
             }).then(function mySuccess(response) {
-                $scope.cartSubTotal = parseInt(response.data.data);
+                $scope.cartSubTotal = response.data.data;
                 // console.log($scope.cartSubTotal);
                 // $scope.checkout(response.data.data);
                 

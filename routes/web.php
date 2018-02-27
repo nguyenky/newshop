@@ -33,7 +33,7 @@ Route::group(['namespace'=>'Home'],function(){
 
 	Route::get('/check','CartController@checkInfo')->name('check');
 
-	Route::post('/payment','CartController@pay')->name('pay');
+	Route::get('/payment','CartController@pay')->name('pay');
 
 	/*----------  AUTH  ----------*/
 

@@ -20,12 +20,16 @@ class CartController extends Controller
     public function checkInfo(Request $request){
         $input = $request->all();
         // dd($input);
+        $carts = Cart::content();
         return view("public.checkout",[
-            "infor"=>$input
+            "infor"=>$input,
+            "carts"=>$carts
             ]);
     }
     public function pay(Request $request){
         $input = $request->all();
-        dd($input);
+        return view("public.thanks",[
+
+            ]);
     }
 }
