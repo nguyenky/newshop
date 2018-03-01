@@ -12,10 +12,11 @@ use Cart;
 class LoginController extends Controller
 {
     public function login(){
-        if(Auth::user()->role == 1){
-            return redirect()->route('admin.index');
-        }
+        
         if(Auth::user()){
+            if(Auth::user()->role == 1){
+                return redirect()->route('admin.index');
+            }
             return redirect()->route('public.index');
         }
     	return view('public.auth.login');
