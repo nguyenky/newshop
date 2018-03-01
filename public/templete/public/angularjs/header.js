@@ -25,4 +25,7 @@ app.controller('HeaderController',[
 		    });
         }
         $scope.getCart();
+        $scope.functionUpdate = function(){
+            alert('Feature not complete yet ! Something went wrong. Please try again later !');
+        }
 }]);

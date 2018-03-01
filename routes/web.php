@@ -64,3 +64,9 @@ Route::group(['namespace'=>'Api'],function(){
 
 	Route::get('/api/total','ApiCartController@total');
 });
+
+Route::group(['namespace'=>'Admin','middleware'=>'admin'],function(){
+
+
+	Route::get('/admin','IndexController@index')->name('admin.index');
+});

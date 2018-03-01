@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','company_name','postal','phone','mobile_phone','fax','message'
+        'name', 'email', 'password','company_name','postal','phone','mobile_phone','fax','message','role'
     ];
 
     /**
@@ -33,5 +33,10 @@ class User extends Authenticatable
     // }
     // public function setRememberToken($value){
     //     $value = null;
+    // }
+
+    // public function isAdmin()
+    // {
+    //     return $this->role_id == 1;
     // }
 }

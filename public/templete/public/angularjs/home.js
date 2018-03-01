@@ -50,4 +50,7 @@ app.controller('HomeController',[
 
         
       }
+      $scope.functionUpdate = function(){
+            alert('Feature not complete yet ! Something went wrong. Please try again later !');
+        }
 }]);

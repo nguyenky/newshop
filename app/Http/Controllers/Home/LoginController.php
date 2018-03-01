@@ -8,9 +8,16 @@ use App\Http\Requests\RegisterUser;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Auth;
+use Cart;
 class LoginController extends Controller
 {
     public function login(){
+        if(Auth::user()->role == 1){
+            return redirect()->route('admin.index');
+        }
+        if(Auth::user()){
+            return redirect()->route('public.index');
+        }
     	return view('public.auth.login');
     }
     public function postLogin(LoginRequest $request){
@@ -19,6 +26,9 @@ class LoginController extends Controller
     	if (Auth::attempt(['email' => $email, 'password' => $password]))
 	        {   
                 $arUser = Auth::user();
+                if(Auth::user()->role == 1){
+                    return redirect()->route('admin.index');
+                }
                 return redirect()->route('public.index');
 	        }else
 	        {
@@ -33,13 +43,14 @@ class LoginController extends Controller
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => bcrypt($input['password']),
+            'role' => 2,
         ]);
 
     	return redirect()->route('public.index');
     }
     public function logout(){
     	Auth::logout();
-        Cart::destroy();
+        // Cart::destroy();
     	return redirect()->route('public.index');
     }
 }

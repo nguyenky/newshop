@@ -28,6 +28,7 @@ class CartController extends Controller
     }
     public function pay(Request $request){
         $input = $request->all();
+        Cart::destroy();
         return view("public.thanks",[
 
             ]);
